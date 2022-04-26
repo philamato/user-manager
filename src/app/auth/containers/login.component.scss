@@ -1,0 +1,17 @@
+.c-form {
+  min-width: 150px;
+  max-width: 620px;
+  width: 100%;
+}
+
+.c-form > * {
+  margin-bottom: 1rem;
+}
+
+.c-field {
+  width: 100%;
+}
+
+button[type="submit"] {
+  padding: 0 2rem;
+}

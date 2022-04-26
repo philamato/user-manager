@@ -1,0 +1,30 @@
+<ng-container *ngIf="authenticated$ | async; else login">
+  <header role="banner">
+    <div class="c-branding">
+      <img height="30" alt="MoCaFi" src="../assets/logo.png" />
+    </div>
+
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="handleLogout()"
+      [attr.aria-label]="'Logout'"
+    >
+      <mat-icon>{{ "logout" }}</mat-icon>
+    </button>
+  </header>
+
+  <div class="c-content c-content--authenticated" role="main">
+    <router-outlet></router-outlet>
+  </div>
+</ng-container>
+
+<ng-template #login>
+  <div class="c-content c-content--authenticating" role="main">
+    <div class="c-branding">
+      <img height="100" alt="MoCaFi" src="../assets/logo.png" />
+    </div>
+
+    <router-outlet></router-outlet>
+  </div>
+</ng-template>

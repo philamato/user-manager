@@ -1,0 +1,77 @@
+<h1>{{ isNewUser ? "Create New" : "Edit" }} User</h1>
+
+<form [formGroup]="form" (ngSubmit)="handleSubmit()" class="c-form">
+  <mat-form-field class="c-field" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      placeholder="Ex. Jane Smith"
+      [formControl]="nameFormControl"
+      required
+    />
+    <mat-error *ngIf="nameFormControl.invalid">{{
+      getNameErrorMessage()
+    }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="c-field" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      placeholder="Ex. jane.smith@gmail.com"
+      [formControl]="emailFormControl"
+      required
+    />
+    <mat-error *ngIf="emailFormControl.invalid">{{
+      getEmailErrorMessage()
+    }}</mat-error>
+  </mat-form-field>
+
+  <div class="c-radioGroupContainer">
+    <label id="gender">Gender *</label>
+    <mat-radio-group
+      class="c-radioGroup"
+      [formControl]="genderFormControl"
+      aria-labelledby="gender"
+      required
+    >
+      <mat-radio-button
+        class="c-radioButton"
+        *ngFor="let item of Gender | keyvalue"
+        [value]="item.key"
+        >{{ item.value }}</mat-radio-button
+      >
+    </mat-radio-group>
+    <mat-error *ngIf="formSubmitted && genderFormControl.invalid">{{
+      getGenderErrorMessage()
+    }}</mat-error>
+  </div>
+
+  <div class="c-radioGroupContainer">
+    <label id="status">Status *</label>
+    <mat-radio-group
+      class="c-radioGroup"
+      [formControl]="statusFormControl"
+      aria-labelledby="status"
+      required
+    >
+      <mat-radio-button
+        class="c-radioButton"
+        *ngFor="let item of Status | keyvalue"
+        [value]="item.key"
+        >{{ item.value }}</mat-radio-button
+      >
+    </mat-radio-group>
+    <mat-error *ngIf="formSubmitted && statusFormControl.invalid">{{
+      getStatusErrorMessage()
+    }}</mat-error>
+  </div>
+
+  <div class="c-actions">
+    <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-button color="basic" (click)="handleCancel($event)">
+      Cancel
+    </button>
+  </div>
+</form>

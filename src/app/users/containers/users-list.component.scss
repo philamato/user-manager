@@ -1,0 +1,24 @@
+.c-toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-row:hover {
+  background-color: #f9f9f9;
+}
+
+.c-action {
+  & + .c-action {
+    margin-left: 0.25rem;
+  }
+}
+
+.c-action--edit mat-icon {
+  font-size: 1.25rem;
+}

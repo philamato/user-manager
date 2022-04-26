@@ -1,0 +1,49 @@
+.c-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.c-form > * {
+  margin-bottom: 0.25rem;
+}
+
+.c-field {
+  width: 100%;
+}
+
+.c-form > .c-radioGroupContainer {
+  margin-bottom: 1.5rem;
+}
+
+.c-radioGroupContainer {
+  label {
+    margin-left: 0.5rem;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  mat-error {
+    padding: 0.5rem;
+    font-size: 75%;
+  }
+}
+
+.c-radioGroup {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0 0;
+  align-items: flex-start;
+}
+
+.c-form .c-radioButton {
+  margin: 5px;
+}
+
+.c-form > .c-actions {
+  margin-top: 2rem;
+}
+
+button[type="submit"] {
+  margin-right: 1rem;
+  padding: 0 2rem;
+}
